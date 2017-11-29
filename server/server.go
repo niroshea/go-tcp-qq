@@ -55,9 +55,9 @@ func createSession(Ac net.Conn, index int, cm map[int]net.Conn, s *sessionx) {
 		var bufr = make([]byte, 30)
 
 		len, e := Ac.Read(bufr)
-		mstr := string(bufr)
-		fmt.Println("创建session，想与 " + mstr + "tongxin.")
-		x, err := strconv.Atoi(byteToStr(bufr))
+		mstr := byteToStr(bufr)
+		fmt.Println("创建session，想与 " + mstr + "聊天。")
+		x, err := strconv.Atoi(mstr)
 		fmt.Println("======================================>", x, "   len ", len, " mstr", mstr)
 		if e != nil {
 			fmt.Println(len, e, "Close Connct")
